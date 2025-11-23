@@ -1,0 +1,9 @@
+# Node.js dependencies
+movie-api/node_modules/
+movie-api/.env
+
+# Python virtual environment
+fastapi-demo/venv/
+
+# Python cache
+**/__pycache__/

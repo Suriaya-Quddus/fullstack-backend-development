@@ -1,0 +1,41 @@
+### Get all movies
+GET http://localhost:3000/movies
+Accept: application/json
+
+###
+
+### Get movie by ID
+GET http://localhost:3000/movies/1
+Accept: application/json
+
+###
+
+### Create a new movie (valid)
+POST http://localhost:3000/movies
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Dune",
+  "director": "Denis Villeneuve",
+  "year": 2021
+}
+
+###
+
+### Update a movie
+PUT http://localhost:3000/movies/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Inception (Updated from REST Client)",
+  "director": "Christopher Nolan",
+  "year": 2010
+}
+
+###
+
+### Delete a movie
+DELETE http://localhost:3000/movies/2
+Accept: application/json
