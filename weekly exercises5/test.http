@@ -1,0 +1,88 @@
+### Get all movies
+GET http://localhost:3000/movies
+
+### Get one movie
+GET http://localhost:3000/movies/1
+
+### Create a new movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Oppenheimer",
+  "director": "Christopher Nolan",
+  "year": 2023
+}
+
+### Update a movie
+PUT http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+  "title": "Inception (Updated)",
+  "director": "Christopher Nolan",
+  "year": 2010
+}
+
+### Delete a movie
+DELETE http://localhost:3000/movies/2
+
+### Invalid movie (missing title, should fail with 400)
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "director": "Someone",
+  "year": 2020
+}
+
+### Valid movie (should succeed with 201)
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Valid Movie",
+  "director": "Good Director",
+  "year": 2024
+}
+
+### Sign up
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "secret123",
+  "name": "Test User",
+  "email": "test@example.com"
+}
+
+###  Login (copy the token from response)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "secret123"
+}
+
+### Try create movie WITHOUT token (should be 401)
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Should Fail",
+  "director": "No Token",
+  "year": 2024
+}
+
+###  Create movie WITH token (replace YOUR_TOKEN)
+POST http://localhost:3000/movies
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+  "title": "JWT Protected Movie",
+  "director": "Secure Director",
+  "year": 2024
+}
